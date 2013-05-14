@@ -1,4 +1,4 @@
 shmup
 =====
 
-A shut'em up
+A shoot'em up
