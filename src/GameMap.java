@@ -1,6 +1,6 @@
 /*
 / Classes needing implementation because of this one
-/   MapItemDrawRequest
+/   VectorMapItemData
 /     public int x,y,type;
 /   TimedItemAdder extends TimerTask
 
@@ -17,7 +17,7 @@ public class GameMap extends Drawable {
   //Items and walls shouldn't have to redraw all the time.
   //This tracks when a cell in the map needs to be rerendered and what it should be rendered as.
   private boolean initialDraw;
-  private List<MapItemDrawRequst> mapChanges;
+  private List<VectorMapItemData> mapChanges;
   
   public GameMap(int[][] mapdata,Engine eng) {
     this.mapdata = mapdata;
@@ -64,13 +64,13 @@ public class GameMap extends Drawable {
     else {
       Iterable workingList = mapChanges;
       mapChanges = makeNewDrawList();
-      for(MapItemDrawRequest req : working) {
+      for(VectorMapItemData req : working) {
         //req.y req.x req.type
       }
   }
   
-  private List<MapItemDrawRequst> makeNewDrawList() {
+  private List<VectorMapItemData> makeNewDrawList() {
     //List type can be adjusted here
-    return new LinkedList<MapItemDrawRequest>();
+    return new LinkedList<VectorMapItemData>();
   }
     
