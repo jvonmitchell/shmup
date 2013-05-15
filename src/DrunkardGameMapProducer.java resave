@@ -1,0 +1,100 @@
+public static class DrunckardGameMapProducer {
+  private static Random rand = new Random();
+  
+  public static GameMap(int recipricalturnodds,
+        int upshare,
+        int downshare,
+        int rightshare,
+        int leftshare,
+        int recipricalsplitodds,
+        int childrecipricalturnodds,
+        int childrecipricalsplitodds,
+        int childrecipricaldeathfactor,
+        int emptyshare,
+        int healthshare,
+        int coinshare,
+        int endmapshare) {
+    List<VectorMapDataItem> relitiveActions= new LinkedList<VectorMapDataItem>();
+    int currentX=0;
+    int currentY=0;
+    Vector2d direction = getDirection(upshare,downshare,rightshare,leftshare);
+    int dx=direction.x;
+    int dy=direction.y;
+    while(true) {
+      relitiveActions.add(new VectorMapDataItem(x,y,GameMap.EMPTY);
+      currentX+=dx;
+      currentY+=dy;
+      if(!rand.nextInt(recipricalturnodds)) {
+        direction = getDirection(upshare,downshare,rightshare,leftshare);
+        dx=direction.x;
+        dy=direction.y;
+      }
+      if(!rand.nextInt(recipricalsplitodds)) {
+        if(resolveChildFork(currentX,
+              currentY,
+              childrecipricalturnodds,
+              childrecipricalsplitodds,
+              childrecipricaldeathfactor
+              emptyshare,
+              healthshare,
+              coinshare,
+              endmapshare)) {
+          break;
+        }
+      }
+    }
+    //Turn the list into a int[][] and return a new GameMap from it.  
+  }
+  //Returns true if end of map marker was produced.
+  //Carves out a child path or tree of child paths
+  //Drops an item at the end of it except when the dropped item is EMPTY
+  private boolean resolveChildFork( List<VectorMapDataItem> relitiveActions,
+        int currentX,
+        int currentY,
+        int childrecipricleturnodds,
+        int childrecipricalsplitodds,
+        int childrecipricaldeathfactor
+        int emptyshare,
+        int healthshare,
+        int coinshare,
+        int endmapshare) {
+    Vector2d direction = getRandDirection();
+    int dx=direction.x;
+    int dy=direction.y;
+    while(!rand.nextInt(childrecipricaldeathfactor)) {
+      currentX+=dx;
+      currnetY+=dy;
+      relitiveActions.add(new VectorMapItemData(currentX,currentY,GameMap.EMPTY));
+      if(!rand.nextInt(childrecipricleturnodds)) {
+        direction = getRandDirection();
+        dx=direction.x;
+        dy=direction.y;
+      }
+      if(!rand.nextInt(childrecipriclesplitodds)) {
+        resolveChildFork(relitiveActions,
+              currentX,
+              currentY,
+              childrecipricleturnodds,
+              childrecipricaldeathfactor,
+              emptyshare,
+              healthshare,
+              coinshare,
+              endmapshare);
+      }
+    }
+    int itemSelector=rand.nextInt(emptyshare+healthshare+coinshare+endmapshare);
+    int itemType=0;
+    if( (itemSelector-=emptyshare) < 0)
+      itemType=GameMap.EMPTY;
+    else if( (itemSelector-=healthshare) < 0)
+      itemType=GameMap.HEALTH;
+    else if( (itemSelector-=coinshare) < 0 )
+      itemType = GameMap.COIN;
+    else if( (itemSelector-=endmapshare) < 0 )
+      itemType = GampMap.END;
+    
+    relitiveActions.add(new VectorMapItemData(currentX,currentY,itemType);
+    
+    return itemType==GameMap.END;
+  }
+}
