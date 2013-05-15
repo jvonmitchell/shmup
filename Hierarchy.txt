@@ -1,0 +1,27 @@
+Game States:
+  Start State
+  Game State
+  End State
+  
+Entity
+  draws itself
+  updates self
+  pointer to engine
+  knows location (2-dimensional)
+  
+Entities:
+  units
+    player character
+    enemy characters
+  projectiles
+  User Interface
+  Obstacles
+  Pickups
+  Background images
+  
+Engine
+  has list of entities
+  updates list of entities
+  draws entities
+  adds entities
+  removes entities
