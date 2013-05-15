@@ -1,9 +1,9 @@
-
 ------------------------------------
 
 Hi everyone,
 
-	I decided we should make a chat stack so that we can talk about the project without using facebook, because the notifications will get old really fast.
+	I decided we should make a chat stack so that we can talk about the project without using facebook, 
+	because the notifications will get old really fast.
 
 	Stack should build up, rather than down so the most recent messages will be viewable quickly from github.
 
