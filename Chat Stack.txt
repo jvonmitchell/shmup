@@ -1,5 +1,4 @@
 
-
 ------------------------------------
 
 Hi everyone,
@@ -10,7 +9,7 @@ Hi everyone,
 
 	The design note that needs mentioning is that bullets should be shot from the hip to prevent them from coliding spacially.
 
-
+,Jason Mitchell
 
 
 ------------------------------------
